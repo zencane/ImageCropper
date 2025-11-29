@@ -4,7 +4,7 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 
 root = Tk()
-root.title("Image Cropper")
+root.title("Image Resizer")
 
 pic = None
 
@@ -15,11 +15,18 @@ def upload():
     path = filedialog.askopenfilename(filetypes=fileTypes)
     print('Selected:', path)
     img = Image.open(path)
-    img = img.resize((320, 320))
+    img = img.resize(resizer(img))
     pic = ImageTk.PhotoImage(img)
     filename.set(path)
     confirmButton.config(state=NORMAL)
     #root.geometry("640x640")
+
+def resizer(image):
+    width, height = image.size
+    maxDimension = max(width, height)
+    scale = frameWidth / maxDimension
+    print(width*scale, height*scale)
+    return (int(width * scale), int(height * scale))
 
 def confirm():
     print("Setting image on label")
@@ -54,7 +61,7 @@ filename = StringVar()
 filename.set("No file selected")
 
 
-titleLabel = ttk.Label(mainframe, text="Image Cropper", font=("Helvetica", 16))
+titleLabel = ttk.Label(mainframe, text="Image Resizer", font=("Helvetica", 16))
 fileLabel = ttk.Label(uploadframe, textvariable=filename, wraplength=320, font=("Helvetica", 8))
 uploadButton = ttk.Button(mainframe, text="Upload", command=lambda:upload())
 confirmButton = ttk.Button(mainframe, text="Confirm", state=DISABLED, command=lambda:confirm())
