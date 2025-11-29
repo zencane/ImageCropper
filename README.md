@@ -11,9 +11,13 @@ Previous look (25/11/2025 1):
 
 ![Previous look (25/11/2025 1)](history/cropImage251120251143.png)
 
+Previous look 2 (25/11/2025 1):
+
+![Previous look (25/11/2025 1)](history/cropImage251120251320.png)
+
 Current look (25/11/2025 2):
 
-![Current look (25/11/2025 2)](history/cropImage251120251320.png)
+![Current look (29/11/2025 1)](history/cropImage291120251859.png)
 
 
 The UI and functionality is being implemented in [imageCrop.py](imageCrop.py). 
